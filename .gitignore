@@ -1,3 +1,7 @@
 .idea/
 node_modules/
 typings
+app/app.component.js
+app/main.js
+app/app.component.js.map
+app/main.js.map
