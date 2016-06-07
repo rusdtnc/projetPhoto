@@ -15,7 +15,7 @@ runtime: nodejs
 vm: true
 
 env_variables:
-  GCLOUD_PROJECT: <your-project-id>
+  GCLOUD_PROJECT: skeleton
   API_KEY: <your-api-key>
 
 manual_scaling:
