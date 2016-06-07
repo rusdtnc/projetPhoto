@@ -14,7 +14,6 @@
 import 'es6-shim';
 import 'es6-promise';
 import '../../node_modules/zone.js/dist/zone'
-import 'reflect-metadata'
 
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { HTTP_PROVIDERS } from '@angular/http';
