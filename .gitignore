@@ -1,7 +1,8 @@
-.idea/
-node_modules/
-typings
-app/app.component.js
-app/main.js
-app/app.component.js.map
-app/main.js.map
+/__build__
+/__server_build__
+/node_modules
+/typings
+/tsd_typings/
+*.log
+/dist/
+.idea

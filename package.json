@@ -1,16 +1,21 @@
 {
-  "name": "testRico",
-  "version": "1.0.0",
+  "name": "cardboard-viewer",
+  "description": "My first angular 2 app",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "author": "Ego",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
+    "preinstall": "npm install typings",
     "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings"
+    "build": "webpack",
+    "prestart": "npm run build",
+    "start": "node src/server/index.js",
+    "serve": "node src/server/index.js"
   },
-  "license": "ISC",
   "dependencies": {
+    "@google/cloud-debug": "^0.8.1",
+    "@google/cloud-trace": "^0.5.1",
     "@angular/common": "2.0.0-rc.1",
     "@angular/compiler": "2.0.0-rc.1",
     "@angular/core": "2.0.0-rc.1",
@@ -18,20 +23,19 @@
     "@angular/platform-browser": "2.0.0-rc.1",
     "@angular/platform-browser-dynamic": "2.0.0-rc.1",
     "@angular/router": "2.0.0-rc.1",
-    "@angular/router-deprecated": "2.0.0-rc.1",
-    "@angular/upgrade": "2.0.0-rc.1",
-    "systemjs": "0.19.27",
-    "core-js": "^2.4.0",
-    "reflect-metadata": "^0.1.3",
-    "rxjs": "5.0.0-beta.6",
-    "zone.js": "^0.6.12",
-    "angular2-in-memory-web-api": "0.0.11",
-    "bootstrap": "^3.3.6"
-  },
-  "devDependencies": {
-    "concurrently": "^2.0.0",
-    "lite-server": "^2.2.0",
+    "body-parser": "^1.15.0",
+    "es6-promise": "^3.1.2",
+    "es6-shim": "^0.35.0",
+    "express": "^4.13.4",
+    "googleapis": "^5.2.1",
+    "ts-loader": "^0.8.2",
     "typescript": "^1.8.10",
-    "typings": "^1.0.4"
+    "typings": "^0.8.1",
+    "rxjs": "5.0.0-beta.6",
+    "webpack": "^1.13.0",
+    "zone.js": "^0.6.12"
+  },
+  "engines": {
+    "node": "4.4.3"
   }
 }
