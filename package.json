@@ -35,6 +35,12 @@
     "webpack": "^1.13.0",
     "zone.js": "^0.6.12"
   },
+  "devDependencies": {
+    "ts-node": "^0.5.5",
+    "tslint": "^3.6.0",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1"
+  },
   "engines": {
     "node": "4.4.3"
   }
