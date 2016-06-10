@@ -8,6 +8,7 @@
   "scripts": {
     "preinstall": "npm install typings",
     "postinstall": "typings install",
+    "dev": "webpack-dev-server --content-base build/",
     "build": "webpack",
     "prestart": "npm run build",
     "start": "node src/server/index.js",
