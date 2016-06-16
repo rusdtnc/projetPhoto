@@ -1,15 +1,25 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { album } from './album';
+
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'album',
-    template: '<div>'+
-    '<h2>{{album.nom}}</h2>'+
-    '<a href="{{album.link}}" class="image"><img src="{{album.cover}}" alt=""></a>'+
-    '</div>'
+    template: '<div><a (click)="gotoDetail()">'+
+                '<img src="{{album.cover}}" alt="" />'+
+                '<h3>{{album.nom}}</h3>' +
+              '</a></div>'
 })
 
-
-export class AlbumComponent {
+export class AlbumComponent implements  OnInit{
     @Input() album: album;
+
+    constructor (private router: Router) {}
+
+    ngOnInit() {
+    }
+
+    gotoDetail() {
+        this.router.navigate(['/albumDetail/', this.album.id]);
+    }
 }

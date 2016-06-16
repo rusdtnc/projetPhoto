@@ -16,9 +16,10 @@
 var webpack = require('webpack');
 var path = require('path');
 
+
 module.exports = {
   context: __dirname,
-
+  devtool: 'source-map',
   entry: './src/client/index',
   module: {
     loaders: [
@@ -32,8 +33,8 @@ module.exports = {
   },
   output: {
     filename: 'index.js',
-    path: path.join(__dirname, 'build'),
-    publicPath: '/assets/'
+    path: path.join(__dirname, 'dist', 'client'),
+    publicPath: path.resolve(__dirname)
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(true)

@@ -1,36 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
 
-import { album } from './business/album';
-import { AlbumComponent } from './business/album.components';
+import { Routes , Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { routes } from './app.route';
+import {GalleryService} from "./business/gallery.service";
+import {AlbumService} from "./business/album.service";
 
 @Component({
     selector: 'my-app',
-    directives: [AlbumComponent],
-    template: '<h1>Mon appli media</h1>' +
-    '  <li *ngFor="let album of albums">' +
-    '   <album [album]="album"></album>'+
-    '</li>',
-    providers: [AppService]
+    directives: [ROUTER_DIRECTIVES],
+    template:
+    '<header id="header">'+
+    '<a class="avatar" href="#" (click)="goHome()"><img src="https://lh3.googleusercontent.com/-9pM4PjphU0U/Vy1wCA5ZriE/AAAAAAAALwk/oMiQNppj_mAty_OrPXYtIfHFiszZOtRywCHM/6281800235154517537" alt="" /></a>'+
+   '<h1><strong>Rico et Rio en Calédo</strong>, les photos en attendant plus de contenu sur le site</h1>'+
+    '</header>' +
+    '<router-outlet></router-outlet>',
+    providers: [AppService, GalleryService, AlbumService, ROUTER_PROVIDERS]
 })
 
-
+@Routes(routes)
 export class AppComponent implements  OnInit{
 
-    errorMessage: string;
-    albums: album[];
-
-    constructor (private appService: AppService) {}
-
+    constructor (private router : Router) {}
 
     ngOnInit() {
-        this.getAlbums();
     }
 
-    getAlbums() {
-        this.appService.getAlbums()
-            .subscribe(
-                albums => this.albums = albums,
-                error =>  this.errorMessage = <any>error);
+    goHome() {
+        this.router.navigate(['/gallery']);
     }
 }
