@@ -14,7 +14,7 @@ declare var MaterialPhotoGallery: any;
     template:
     '<div class="m-p-g">' +
     '<div class="m-p-g__thumbs" data-google-image-layout data-max-height="300">'+
-    '<img *ngFor="let photo of photos" src="{{photo.thumbnail}}" attr.data-full="{{photo.link}}" class="m-p-g__thumbs-img"/>' +
+    '<img *ngFor="let photo of photos; let i = index" src="{{photo.thumbnail}}" id="img_{{i}}" attr.data-full="{{photo.link}}" class="m-p-g__thumbs-img"/>' +
     '</div>'+
     '<div class="m-p-g__fullscreen"></div>'+
     '</div>'
@@ -34,6 +34,7 @@ export class AlbumDetailComponent implements  OnInit{
 
     ngOnInit() {
         this.getPhotos();
+
     }
 
     onComplete(){

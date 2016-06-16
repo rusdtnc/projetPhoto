@@ -1246,8 +1246,11 @@ window.MaterialPhotoGallery = MaterialPhotoGallery;
 
 	Gallery.prototype._bindEvents = function() {
 
-		for (var i = 0, ii = this._thumbs.length; i < ii; i++) {
+        this._thumbs.sort(function(a, b) {
+            return parseInt(a.getAttribute('id').substring(4))-parseInt((b.getAttribute('id').substring(4)));
+        });
 
+		for (var i = 0, ii = this._thumbs.length; i < ii; i++) {
 			// Add click event to each thumbnail.
 			this._thumbs[i].addEventListener('click', this._handleThumbClick.bind(this));
 
